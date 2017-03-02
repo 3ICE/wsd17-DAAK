@@ -126,3 +126,35 @@ We shall keep our project plan updated during the project!
 * Feedback will be given using the games list using a mechanism on it, when the list  becomes available later.
 * High quality of feedback and more than 2 tested programs.
 * Some extra features not listed in the project description what you plan to implement TODO
+* 
+
+Implementation Plan
+Software Requirements:
+*JavaScript(Front-end and Back End)
+*Ajax(Back-End)
+*HTML, CSS(Front-end)
+
+Implementation Timetable
+A minimum of two features will be implemented per week.
+
+Project Work Division and Assignment
+Front-end - Aparajita/Krishna
+Back-end - Daniel/Arjun
+The idea is that all the team members will be involved in designing and devleloping the entire application. The work division is for making sure responsibility is taken
+and things does not go haywire.
+
+
+Communication and Meeting
+We have created a facebook group for communication purposes. We will migrate to Slack in coming days.
+As of now we will be meeting every week and we are planning to have coding nights as well.
+The timings will be decided in the beginning of every week, so that everyone is comfortable with it.
+
+Risks and Mitigation(Will be updated once in a while)
+The common ris=k factors would be any of the team members falling sick, in such a case the workload will be divided amongst the remaining members.
+Fall quickly and raise even faster, if we are not finding good results we will immediately change the plan.
+
+
+
+Keep your project plan updated during the project!
+
+````
