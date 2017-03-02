@@ -93,17 +93,17 @@ Software Requirements:
 A minimum of two features will be implemented per week.
 
 ## Project Work Division and Assignment
-* Front-end - Aparajita/Krishna
-* Back-end - Daniel/Arjun
 The idea is that all the team members will be involved in designing and devleloping the entire application. The work division is for making sure responsibility is taken
 and things does not go haywire.
+* Front-end - Aparajita/Krishna
+* Back-end - Daniel/Arjun
 
 
 ## Communication and Meeting
+Our first meeting: three people were present in person, Daniel attended via Skype. For the remaining meetings we plan to all meet in person. We'll schedule a time, such as: Every wednesday 16-23
 * We have created a facebook group for communication purposes. We will migrate to Slack in coming days.
 * As of now we will be meeting every week and we are planning to have coding nights as well.
 * The timings will be decided in the beginning of every week, so that everyone is comfortable with it.
-* Our first meeting three people were present in person, Daniel attended via Skype. For the remaining meetings we plan to meet in person. We'll schedule a time, such as: Every wednesday 16-23
 
 
 ## Risks and Mitigation
@@ -113,7 +113,7 @@ and things does not go haywire.
 
 We shall keep our project plan updated during the project!
 
-## Useful command line instructions:
+### Appendix 1: Useful command line instructions:
 Git global setup (do this once)
 ```
 git config --global user.name "Firstname Lastname"
