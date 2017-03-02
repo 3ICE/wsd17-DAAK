@@ -53,3 +53,21 @@ git push
 Have fun, web developers!
 
 Daniel
+
+
+Our first task is this:
+```
+General description of what you are doing and how you are doing that (what kinds of views, models are needed),
+how they relate to each other, and what is the implementation order and timetable.
+
+In the project plan your group will at least tell the following:
+students in your group (names, email addresses, student ids)
+name of your group
+what of the listed features you plan to implement
+are there some extra features not listed in the project description what you plan to implement?
+for each feature, how you are going to implement it
+information on how you plan on working on the project  (will you meet face-to-face regularly, will use some project management tools, etc.)
+
+Keep your project plan updated during the project!
+
+````
