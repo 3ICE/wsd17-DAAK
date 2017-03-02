@@ -19,7 +19,7 @@ Master `seitti2017` repo: https://gitlab.rd.tut.fi/seitti/seitti2017/tree/master
 * Daniel Berezvai, <daniel.berezvai@student.tut.fi> ```262849```
 * Aparajita Chowdhury, <aparajita.chowdhury@student.tut.fi>
 * Arjun Venkatakrishnan, <arjun.venkatakrishnan@student.tut.fi>
-* Krishna Bagale, <krishna.bagale@student.tut.fi>
+* Krishna Bagale, <krishna.bagale@student.tut.fi> ```267634```
 
 
 ## Timeline
