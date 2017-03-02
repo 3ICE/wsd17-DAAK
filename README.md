@@ -1,6 +1,7 @@
 # TIE-23500, Web Programming, Spring 2017
 Teachers: Petri Ihantola, Mikko Nurminen
 
+
 # Web Software Development - Daniel, Aparajita, Arjun, Krishna
 ## Group ID: `wsd17-DAAK`
 This repo created 2017. 02. 23. by Arjun.
@@ -13,26 +14,26 @@ My Web development repo: https://gitlab.rd.tut.fi/berezvai/web/
 
 Master `seitti2017` repo: https://gitlab.rd.tut.fi/seitti/seitti2017/tree/master
 
+
 ## Members:
 * Daniel Berezvai, <daniel.berezvai@student.tut.fi> ```262849```
 * Aparajita Chowdhury, <aparajita.chowdhury@student.tut.fi>
 * Arjun Venkatakrishnan, <arjun.venkatakrishnan@student.tut.fi>
 * Krishna Bagale, <krishna.bagale@student.tut.fi>
 
+
 ## Timeline
 We'll aim to hit each deadline of course. Here they are:
-Project Plan by Monday 6.3.2017 midnight
-JavaScript game ready for distribution by Friday 31.3.2017 midnight
-Test your store with other groups’ games by Sunday 16.4.2017 
-Final submission by Sunday 23.4.2017 midnight
-Present our project work to course staff 24. - 28.4.2017
-
+* Project Plan by Monday 6.3.2017 midnight
+* JavaScript game ready for distribution by Friday 31.3.2017 midnight
+* Test your store with other groups’ games by Sunday 16.4.2017 
+* Final submission by Sunday 23.4.2017 midnight
+* Present our project work to course staff 24. - 28.4.2017
 
 
 ## General description of what we are doing and how we are doing that
-TODO
-(what kinds of views, models are needed), how they relate to each other, and what is the implementation order:
-TODO
+TODO (what kinds of views, models are needed), how they relate to each other, and what is the implementation order: TODO
+
 
 # Our first task is creating this readme.md file
 In the project plan our group will at least tell the following:
@@ -83,14 +84,17 @@ In the project plan our group will at least tell the following:
 * High quality of feedback and more than 2 tested programs.
 * Some extra features not listed in the project description what you plan to implement TODO
 
+
 ## Implementation Plan
 Software Requirements:
 * JavaScript(Front-end and Back End)
 * Ajax(Back-End)
 * HTML, CSS(Front-end)
 
+
 ## Implementation Timetable
 A minimum of two features will be implemented per week.
+
 
 ## Project Work Division and Assignment
 The idea is that all the team members will be involved in designing and devleloping the entire application. The work division is for making sure responsibility is taken
@@ -112,6 +116,7 @@ Our first meeting: three people were present in person, Daniel attended via Skyp
 * Fall quickly and raise even faster, if we are not finding good results we will immediately change the plan.
 
 We shall keep our project plan updated during the project!
+
 
 ### Appendix 1: Useful command line instructions:
 Git global setup (do this once)
