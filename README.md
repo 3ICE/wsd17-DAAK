@@ -17,8 +17,8 @@ Master `seitti2017` repo: https://gitlab.rd.tut.fi/seitti/seitti2017/tree/master
 
 ## Members:
 * Daniel Berezvai, <daniel.berezvai@student.tut.fi> ```262849```
-* Aparajita Chowdhury, <aparajita.chowdhury@student.tut.fi>
-* Arjun Venkatakrishnan, <arjun.venkatakrishnan@student.tut.fi>
+* Aparajita Chowdhury, <aparajita.chowdhury@student.tut.fi> ```267634```
+* Arjun Venkatakrishnan, <arjun.venkatakrishnan@student.tut.fi> ```267930```
 * Krishna Bagale, <krishna.bagale@student.tut.fi> ```267634```
 
 
