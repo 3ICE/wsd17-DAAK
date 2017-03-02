@@ -14,7 +14,7 @@ My Web development repo: https://gitlab.rd.tut.fi/berezvai/web/
 Master `seitti2017` repo: https://gitlab.rd.tut.fi/seitti/seitti2017/tree/master
 
 ## Members:
-* Daniel Berezvai, <daniel.berezvai@student.tut.fi>
+* Daniel Berezvai, <daniel.berezvai@student.tut.fi> ```262849```
 * Aparajita Chowdhury, <aparajita.chowdhury@student.tut.fi>
 * Arjun Venkatakrishnan, <arjun.venkatakrishnan@student.tut.fi>
 * Krishna Bagale, <krishna.bagale@student.tut.fi>
@@ -57,13 +57,24 @@ Daniel
 
 Our first task is this:
 ```
-General description of what you are doing and how you are doing that (what kinds of views, models are needed),
-how they relate to each other, and what is the implementation order and timetable.
+Timeline:
+We'll aim to hit each deadline of course. Here they are:
+Project Plan by Monday 6.3.2017 midnight
+JavaScript game ready for distribution by Friday 31.3.2017 midnight
+Test your store with other groups’ games by Sunday 16.4.2017 
+Final submission by Sunday 23.4.2017 midnight
+Present our project work to course staff 24. - 28.4.2017
 
-In the project plan your group will at least tell the following:
-students in your group (names, email addresses, student ids)
-name of your group
+
+General description of what we are doing and how we are doing that (what kinds of views, models are needed),
+how they relate to each other, and what is the implementation order:
+TODO
+
+In the project plan our group will at least tell the following:
+students in your group (names, email addresses, student ids) DONE
+name of your group DONE
 what of the listed features we plan to implement:
+ALL of them. Namely:
 Register as a player and developer
 As a developer: add games to their inventory, see list of game sales
 As a player: buy games, play games, see game high scores and record their score to it
@@ -80,8 +91,6 @@ Basic developer functionalities:
 Add a game (URL) and set price for that game and manage that game (remove, modify)
 Basic game inventory and sales statistics (how many of the developers' games have been bought and when)
 Security restrictions, e.g. developers are only allowed to modify/add/etc. their own games, developer can only add games to their own inventory, etc.
-
-
 Game/service interaction:
 When player has finished playing a game (or presses submit score), the game sends a postMessage to the parent window containing the current score. This score must be recorded to the player's scores and to the global high score list for that game. See section on Game Developer Information for details.
 Messages from service to the game must be implemented as well
@@ -115,10 +124,14 @@ Use the games other groups’ games, choosing the games from a list when the lis
 Give feedback for the game and it’s functioning with your online game store. Make sure your feedback is constructive and professional in tone and in substance.
 Feedback will be given using the games list using a mechanism on it, when the list  becomes available later.
 High quality of feedback and more than 2 tested programs.
-are there some extra features not listed in the project description what you plan to implement?
-for each feature, how you are going to implement it
-information on how you plan on working on the project  (will you meet face-to-face regularly, will use some project management tools, etc.)
+Some extra features not listed in the project description what you plan to implement
 
-Keep your project plan updated during the project!
+for each feature, how you are going to implement it TODO
+information on how you plan on working on the project  (will you meet face-to-face regularly, will use some project management tools, etc.) TODO
+Our first meeting three people were present in person, Daniel attended via Skype.
+For the remaining meetings we plan to meet in person. We'll schedule a time, such as:
+Every wednesday 16-23
+
+We shall keep our project plan updated during the project!
 
 ````
