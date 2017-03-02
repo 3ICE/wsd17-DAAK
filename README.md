@@ -69,7 +69,7 @@ As a developer: add games to their inventory, see list of game sales
 As a player: buy games, play games, see game high scores and record their score to it
 Authentication:
 Login, logout and register (both as player or developer).  See documentation about extending the User model https://docs.djangoproject.com/en/1.10/topics/auth/customizing/#extending-the-existing-user-model
-Email validation is not required for the minimum points but is required to get more than 100 points. For dealing with email in Django see https://docs.djangoproject.com/en/1.8/topics/email/#email-backends You do not need to configure a real SMTP-server, using Django's Console Backend is enough for full points.
+Email validation is required. For dealing with email in Django see https://docs.djangoproject.com/en/1.8/topics/email/#email-backends You do not need to configure a real SMTP-server, using Django's Console Backend is enough.
 Use Django auth
 Basic player functionalities:
 Buy games, payment is handled by a mockup payment service: 
@@ -85,37 +85,36 @@ Security restrictions, e.g. developers are only allowed to modify/add/etc. their
 Game/service interaction:
 When player has finished playing a game (or presses submit score), the game sends a postMessage to the parent window containing the current score. This score must be recorded to the player's scores and to the global high score list for that game. See section on Game Developer Information for details.
 Messages from service to the game must be implemented as well
-Quality of Work (mandatory 100-200 points)
+Quality of Work will be high
 Quality of code (structure of the application, comments)
 Purposeful use of framework (Don't-Repeat-Yourself principle, Model-View-Template separation of concerns)
 User experience (styling, interaction)
 Meaningful testing
-Non-functional requirements (mandatory 100-200 points)
-Project plan (part of final grading, max. 50 points)
+Non-functional requirements:
+This Project plan
 Overall documentation, demo, teamwork, and project management as seen from the history of your GitLab project (and possible other sources that you submit in your final report)
-Own JavaScript game(s) (mandatory 100-300 points)
+Own JavaScript game
 Develop a (simple) game in JavaScript that communicates with the service (the game has to use at least these three service features: high score, save, load)
-The game needs to be deployed somewhere. Note that games may be possible to deploy as static content as many of them do not require backend - other than the game store (If you'd like to deploy games to heroku as well, it can be in it’s own project in GitLab. If this is the case, please share this project to wsd-agent and link the project from your main repository)
-Note that it does not need to be the greatest game ever, going a little beyond the given example test game is enough to get half the points. For full points, we expect to see something interesting.
-Functionality that earns your group extra points
-Save/load and resolution feature (0-100 points):
+The will be deployed somewhere. Note that games may be possible to deploy as static content as many of them do not require backend - other than the game store (If you'd like to deploy games to heroku as well, it can be in it’s own project in GitLab. If this is the case, please share this project to wsd-agent and link the project from your main repository)
+Extra functionality:
+Save/load and resolution feature
 The service supports saving and loading for games with the simple message protocol described in Game Developer Information
-3rd party login (0-100 points)
+3rd party login
 Allow OpenID, Gmail or Facebook login to your system. This is the only feature where you are supposed to use third party Django apps in your service.
-RESTful API (0-100 points)
+RESTful API
 Design and Implement some RESTful API to the service
 E.g. showing available games, high scores, showing sales for game developers (remember authentication)
-Mobile Friendly (0-50 points)
+Mobile Friendly
 Attention is paid to usability on both traditional computers and mobile devices (smart phones/tablets)
 It works with devices with varying screen width and is usable with touch based devices (see e.g. http://en.wikipedia.org/wiki/Responsive_web_design )
-Social media sharing (0-50 points)
+Social media sharing
 Enable sharing games in some social media site (Facebook, Twitter, Google+, etc.)
 Focus on the metadata, so that the shared game is “advertised” well (e.g. instead of just containing a link to the service, the shared items should have a sensible description and an image)
-Testing your service with other groups’ games (0-200 points)
+Testing your service with other groups’ games
 Use the games other groups’ games, choosing the games from a list when the list becomes available
 Give feedback for the game and it’s functioning with your online game store. Make sure your feedback is constructive and professional in tone and in substance.
 Feedback will be given using the games list using a mechanism on it, when the list  becomes available later.
-High quality of feedback and more than 2 tested programs lead to maximum points.
+High quality of feedback and more than 2 tested programs.
 are there some extra features not listed in the project description what you plan to implement?
 for each feature, how you are going to implement it
 information on how you plan on working on the project  (will you meet face-to-face regularly, will use some project management tools, etc.)
