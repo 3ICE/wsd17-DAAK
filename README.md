@@ -14,7 +14,10 @@ My Web development repo: https://gitlab.rd.tut.fi/berezvai/web/
 
 Master `seitti2017` repo: https://gitlab.rd.tut.fi/seitti/seitti2017/tree/master
 
-Our OneDrive: [WSD-Time and Work done](https://tutfi-my.sharepoint.com/personal/venkatak_student_tut_fi/_layouts/15/guestaccess.aspx?folderid=0032e99ee17b6441488b2549b4050d193&authkey=ASVs2BtHwdhfQDYyTPuB4xM) Our game on Heroku: [clone-clicker](https://clone-clicker.herokuapp.com/)
+Our OneDrive: [WSD-Time and Work done](https://tutfi-my.sharepoint.com/personal/venkatak_student_tut_fi/_layouts/15/guestaccess.aspx?folderid=0032e99ee17b6441488b2549b4050d193&authkey=ASVs2BtHwdhfQDYyTPuB4xM)
+
+Our game on Heroku: [clone-clicker](https://clone-clicker.herokuapp.com/)
+
 ## Members:
 * Daniel Berezvai, <daniel.berezvai@student.tut.fi> ```262849```
 * Aparajita Chowdhury, <aparajita.chowdhury@student.tut.fi> ```267635```
