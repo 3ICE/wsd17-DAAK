@@ -126,12 +126,8 @@
 		var imageObject = document.getElementById("imageObject");
 		var imageCounter = 1;
 		$("#attack").click(function () {
-			if(imageCounter > 8){imageCounter = 0;} // 3ICE: [9] resets to [0]
+			if(imageCounter > 8){imageCounter = 0;} // 3ICE: [9] resets to [0].
 			imageObject.src = images[imageCounter++];
-			document.getElementById("imageObject").src="http://krishnabagale.com/wp-content/uploads/2017/03/img22.png";
-			setTimeout(function(){
-				 document.getElementById("imageObject").src="http://krishnabagale.com/wp-content/uploads/2017/03/img11.png";
-			 }, 1000);
 			var damage_done = 1 + upgrades + helpers + equipment.length;
 			points += damage_done;
 			enemy_health -= damage_done;
@@ -180,9 +176,7 @@
 	<button id="hire_helper">Hire Helper (100 gold)</button>
 	<button id="purchase_equipment">Purchase equipment (100 gold)</button>
 	<button id="upgrade">Purchase level 1 Upgrade (100 gold)</button>
-	<a onclick="changeImage(this)" id="mute">
-	 <img src="http://krishnabagale.com/wp-content/uploads/2017/03/img11.png" id="imageObject" />
-  </a>
+
 	<h3>Equipment</h3>
 	<ul id="equipment"></ul>
 
