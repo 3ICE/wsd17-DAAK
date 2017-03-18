@@ -77,7 +77,7 @@ In the project plan our group will at least tell the following:
 * Daniel and Krishna - Mobile Friendly Attention is paid to usability on both traditional computers and mobile devices (smart phones/tablets).It works with devices with varying screen width and is usable with touch based devices http://en.wikipedia.org/wiki/Responsive_web_design
 * Daniel, Arjun and Aparajita - Social media sharing Enable sharing games in some social media site (Facebook, Twitter, Google+, etc.).Focus on the metadata, so that the shared game is “advertised” well (e.g. instead of just containing a link to the service, the shared items should have a sensible description and an image)
 * DAAK - Testing your service with other groups’ games
-* Aparajita and Krishna -Use the games other groups’ games, choosing the games from a list when the list becomes available
+* Aparajita and Krishna - Use the games other groups’ games, choosing the games from a list when the list becomes available
 * DAAK - Give feedback for the game and it’s functioning with your online game store. Make sure your feedback is constructive and professional in tone and in substance.
 Feedback will be given using the games list using a mechanism on it, when the list  becomes available later.
 High quality of feedback and more than 2 tested programs.
