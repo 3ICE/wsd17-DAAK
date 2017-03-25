@@ -174,18 +174,6 @@
 </head>
 <body>
 
-	<style>
-	.row{
-		display: flex;
-
-	}
-	.col{
-		flex: 1;
-		padding: 1em;
-
-	}
-
-	</style>
 
 	<div style="width:800px; margin:0 auto;">
 

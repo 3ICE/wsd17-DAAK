@@ -4,3 +4,12 @@
 	display: block;
 	white-space: nowrap;
 }
+.row{
+	display: flex;
+
+}
+.col{
+	flex: 1;
+	padding: 1em;
+
+}
