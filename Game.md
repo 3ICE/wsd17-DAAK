@@ -1,5 +1,5 @@
 # Clone Clicker
-Daniel will write this JavaScript game.
+Daniel will write this JavaScript game. Footer: Daniel Berezvai, Aparajita Chowdhury, Arjun Venkatakrishnan, and Krishna Bagale
 
 The aim is to click a button to deal some amount of damage to an enemy on the screen.
 
