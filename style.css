@@ -1,23 +1,29 @@
 #health{
-	background-color: darkred;
-	color: white;
-	display: block;
-	white-space: nowrap;
+    background-color: darkred;
+    color: white;
+    display: block;
+    white-space: nowrap;
 }
 .row{
-	display: flex;
+    display: flex;
 
 }
 .col{
-	flex: 1;
-	padding: 1em;
+    flex: 1;
+    padding: 1em;
 
 }
-#footer{
-	padding-top: 2em;
-	border-top: 1px #222;
-}
 @media only screen and (max-width: 500px) {
+    .col{
+    flex: 0.1;
+    padding: 1em;
+
+    }
+}
+#footer{
+    padding-top: 2em;
+    border-top: 1px #222;
+}
     body {
         background-color: #fff;
 
@@ -34,4 +40,3 @@
     margin: 4px 2px;
     cursor: pointer;
     }
-}
