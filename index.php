@@ -202,6 +202,7 @@
 		<button id="submit_score">Submit score</button>
 		<button id="save">Save</button>
 		<button id="load">Load</button><br />
+		<div id="footer">Developed by: Daniel Berezvai, Aparajita Chowdhury, Arjun Venkatakrishnan, and Krishna Bagale</div>
 	</div>
 </body>
 </html>
