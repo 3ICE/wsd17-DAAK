@@ -181,7 +181,7 @@
 			<div class="row">
 
 				<div class="col"><img src="img/Coin.jpg"/> <span id="gold">100</span> Gold</div>
-				<div class="col"><span id="helpers">0</span> Helpers</div>
+				<div class="col"><img src="img/stickman.jpg" /> <span id="helpers">0</span> Helpers</div>
 				<div class="col"><span id="points">0</span> Points</div>
 			</div>
 			<img src="img/attack1.png" id="imageObject" alt="player" />
