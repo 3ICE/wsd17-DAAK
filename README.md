@@ -18,6 +18,8 @@ Our OneDrive: [WSD-Time and Work done](https://tutfi-my.sharepoint.com/personal/
 
 Our game on Heroku: [clone-clicker](https://clone-clicker.herokuapp.com/)
 
+Documentation: [Game.md](game/Game.md) Screenshot: [png](game/Clone-Clickers-v1-screenshot.png) Demonstration: [gif](game/Demonstration-animation.gif)
+
 ## Members:
 * Daniel Berezvai, <daniel.berezvai@student.tut.fi> ```262849```
 * Aparajita Chowdhury, <aparajita.chowdhury@student.tut.fi> ```267635```
