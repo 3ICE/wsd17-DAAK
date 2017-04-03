@@ -1,0 +1,8 @@
+{
+  "name": "DAAK Store of Awesome stuff",
+  "description": "Webshop for online games, to be deployed to Heroku.",
+  "image": "heroku/python",
+  "repository": "https://git.heroku.com/daak-store.git",
+  "keywords": ["python", "django" ],
+  "addons": [ "heroku-postgresql" ]
+}
