@@ -1,2 +1,4 @@
 .DS_Store
 game/img/backup
+db.sqlite3
+*.pyc
