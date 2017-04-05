@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'social_django',
+    'social_django', # 3ICE: Requires `pip install social-auth-app-django`
     'hello'
 )
 
@@ -50,8 +50,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    # add your stuff here SOCIAL, AUTH, ETC
-    #'social_django.middleware.SocialAuthExceptionMiddleware',
+    # add your stuff here for SOCIAL, AUTH, ETC
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 )
 
 ROOT_URLCONF = 'gettingstarted.urls'
@@ -68,8 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'social_django.context_processors.backends',
-                #'social_django.context_processors.login_redirect',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -86,19 +86,19 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'hello', # myproject
-        'USER': 'haezqswxdtwsyg', # myprojectuser
+        'NAME': 'hello', # my project
+        'USER': 'haezqswxdtwsyg', # my project user
         'PASSWORD': '4f67fdd699eec15173563272e5763977049af5d9bc308e1fc28accfccb91924c',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
-#AUTHENTICATION_BACKENDS = (
-#    'social_core.backends.github.GithubOAuth2',
-#    'social_core.backends.twitter.TwitterOAuth',
-#   'social_core.backends.facebook.FacebookOAuth2',
-#   'django.contrib.auth.backends.ModelBackend',
-#)
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+   'social_core.backends.facebook.FacebookOAuth2',
+   'django.contrib.auth.backends.ModelBackend',
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
