@@ -7,7 +7,8 @@ from .forms import SignUpForm
 
 def index(request):
     return render(request, 'index.html')
-
+def profile_developer(request):
+    return render(request,'profile_developer.html')
 
 def db(request):
     greeting = Greeting()
@@ -25,7 +26,13 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('index')
+            developer = request.POST.get("developer", None)
+            if developer in ["developer_box"]:
+
+                return redirect('profile_developer')
+            else:
+
+                return redirect('index')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
