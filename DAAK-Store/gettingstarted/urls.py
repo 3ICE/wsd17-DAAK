@@ -8,9 +8,7 @@ import hello.views
 
 # Example:
 # url(r'^blog/', include('blog.urls')),
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'index'
+
 urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^db', hello.views.db, name='db'),
@@ -20,5 +18,6 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
     url(r'^profile_developer/$', hello.views.profile_developer, name='profile_developer'),
     url(r'^signup/$', hello.views.signup, name='signup'),
+    url(r'^add_game/$', hello.views.addgame, name='addgame'),
     url("^soc/", include("social_django.urls", namespace="social"))
 ]
