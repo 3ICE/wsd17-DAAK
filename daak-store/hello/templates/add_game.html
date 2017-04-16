@@ -1,12 +1,12 @@
 
 {% extends 'base.html' %}
 
-{% block title %}See you!{% endblock %}
+{% block title %}Add Game{% endblock %}
 
 {% block content %}
   <h2>Add Game</h2>
-  <p>Logged in as{{request.user.username}}</p>
-  <form action="" method="post">
+  <p>Logged in as {{request.user.username}}</p>
+  <form action="/add_game/" method="post">
 {% csrf_token %}
 {{ form.as_p }}
   <input type="submit" name="s" value="Add" />
