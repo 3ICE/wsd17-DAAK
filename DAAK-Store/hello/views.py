@@ -4,12 +4,17 @@ from django.contrib.auth import *
 from django.contrib.auth.models import User
 from .forms import *
 from .models import *
-
+from django.template import RequestContext
 
 
 def index(request):
     return render(request, 'index.html')
 
+def games(request):
+    return render(request, 'games.html',{"allgames":Game.objects.all()})
+
+def game(request,name):
+    return render(request, 'game.html',{"game":Game.objects.get(game_name=name.replace("_"," "))})
 
 def profile_developer(request):
     return render(request, 'profile_developer.html')
@@ -53,9 +58,9 @@ def addgame(request):
                 game.save()
             else:
                 print(form.errors)
-            return render_to_response("add_game.html", {"form": form},context_instance=RequestContext(request))
+            return render(request,"add_game.html", {"form": form})
 
         else:
             return redirect("login")
     else:
-        raise Http404()
+        return redirect("login")
