@@ -1,11 +1,3 @@
-<?php
-if(empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == "off"){
-    $redirect = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-    header('HTTP/1.1 301 Moved Permanently');
-    header('Location: ' . $redirect);
-    exit();
-}
-?>
 <!DOCTYPE html>
 <!-- http://clone-clicker.herokuapp.com/ -->
 <html>
@@ -16,6 +8,10 @@ if(empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == "off"){
 	<title>DAAK's Clone Clicker</title>
 	<script src="jquery-3.1.1.js"></script>
 	<script>
+	//3ICE: Force HTTPS (htaccess didn't work, php didn't work, this didn't work, that didn't work, but THIS will)
+	if(location.protocol != 'https:'){
+		location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+	}
 	//3ICE: "onload"
 	$(document).ready( function() {
 		"use strict";
