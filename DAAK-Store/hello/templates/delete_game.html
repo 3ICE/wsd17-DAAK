@@ -1,22 +1,8 @@
 {% extends 'base.html' %}
-{% block header %}
-<style type="text/css">
-.registration-container{
-position: relative;
-background: #B1DBFF;
-width: 600px;
- margin:0px auto;
-}
-#centertag a{
-  display: block;
-  border: 1px solid;
-}
-</style>
-{% endblock %}
+
 {% block title %}Welcome {{request.user.username}}{% endblock %}
 
 {% block content %}
-<div align="center" id="centertag" class="registration-container">
 <div>
 {% for game in allgames %}
 <a href="{{game.game_name.split|join:"_"}}">
@@ -26,12 +12,26 @@ width: 600px;
     {{game.game_developer}}
     <br />
     ${{game.game_price|floatformat:2}}
+    <br />
   </a>
+  <button onclick="myFunction()">Delete</button>
 
+  <p id="demo"></p>
+
+  <script>
+  function myFunction() {
+      var x;
+      if (confirm("Press a button!") == true) {
+          x = "You pressed delete!";
+      } else {
+          x = "You pressed Cancel!";
+      }
+      document.getElementById("demo").innerHTML = x;
+  }
+  </script>
   {% empty %}
       <li>No games yet.</li>
       <a href="{% url 'addgame' %}">Want to add game? Click here</a>
 {% endfor %}
 </div>
 {% endblock %}
-</div>
