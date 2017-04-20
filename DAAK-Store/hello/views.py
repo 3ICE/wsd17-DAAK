@@ -44,19 +44,26 @@ def signup(request):
             user_db = form.save(commit=False)
             name = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
-            user_auth = authenticate(username=name, password=raw_password)
-            #login(request, user_auth)
-            developer = request.POST.get("developer", None)
+            email = form.cleaned_data.get('email')
+            user = authenticate(username=name, password=raw_password)
+            # 3ICE: Temporarily auth them (worked like this before)
+            #user_db.active = True
+            #user_db.save()
+            #login(request, user_db) # 3ICE: Don't bloody try to log in when it's not an activated account...
+            dev = request.POST.get("developer", None)
+            user_db.developer=dev
             user_db.save()
-            player=Player.objects.filter(username=name)
-            player.update(developer = True)# sup spaghetti code TODO clarify
-            #player.save()
-            if developer in ["developer_box"]:
-                mail(user_auth)
-                return redirect('registration')
-            else:
-                mail(user_auth)
-                return redirect('profile_player')
+            player=Player.objects.create(user=user_db, developer=dev)
+            player=Player.objects.create(user=user, developer=dev)
+            hashed_password = user_db.password
+            send_confirmation_mail(name, hashed_password, email)
+            #if dev in ["developer_box"]:
+            #    return redirect('registration')
+            #else:
+            #    return redirect('profile_player')
+            return redirect('login')
+        else: return render(request, 'signup.html', {'form': form}) # displays all errors in red automatically
+          
     else:
         form = SignUpForm() # 3ICE: Possibly stop using this, since we need to send the email
     return render(request, 'signup.html', {'form': form})
@@ -83,38 +90,42 @@ def delete(request):
 
 
 # email validation
-def mail(user):
-    secure_link = user.username + "$$$$" + user.password
-    msg = 'Dear ' + user.username + """,
-Welcome to DAAK store!
-Thank you for registering in our store of awesome stuffs.
+def send_confirmation_mail(name, pw, email):
+    secure_link = name + "$$$$" + pw
+    msg = """
+          Dear %(name)s,
+          Welcome to DAAK store!
+          Thank you for registering in our store of awesome stuffs.
+          
+          We will validate your id promptly.
+          Please click this link to verify you email address and complete registration:
+          https://daak-store.herokuapp.com/user_verification/%(link)s
+          And then kindly login again to continue.
+          
+          Best regards,
+          The DAAK team of awesome stuffs!
+          http://daak-store.herokuapp.com/
+          """ % {'name': name, 'link': secure_link}
 
-We will validate your email id promptly.
-Please click this link to verify you email address and complete registration:
-https://daak-store.herokuapp.com/user_verification/""" + secure_link + """
-
-And then kindly login again to continue.
-
-Best regards,
-The Daak team
-Thanks,
-The DAAK team of awesome!
-http://daak-store.herokuapp.com/
-"""
-    send_mail('Please confirm your registration at DAAK store, ' + user.username,
-              msg, 'daaktest@gmail.com', [user.email])
+    #<a href="https://daak-store.herokuapp.com/user_verification/""" + secure_link + """
+    #">https://daak-store.herokuapp.com/user_verification/""" + secure_link + """</a>
+    send_mail('Please confirm your registration at DAAK store, ' + name,
+              msg, 'daaktest@gmail.com', [email])
 
 #Verifying the user account
 def user_verification(request, secure_link):
     name, pwd = secure_link.split('$$$$')
-    user = Player.objects.filter(username=name, password=pwd)
-    if user:
+    user = User.objects.filter(username=name, password=pwd)
+    # Player knows if he's a developer or not:
+    player = Player.objects.get(user=user)
+    if player:
         user.update(active = True)
+        player.update(activated = True)
         user.save()
         msg = "We have validated your email id!"
     else:
         msg = "Verification error!"
-    if request.user.developer:
+    if player.developer: #request.user.developer didn't work, so here's a workaround
       return render(request, 'profile_developer.html', {'msg': msg})
     else:
       return render(request, 'profile_player.html', {'msg': msg})

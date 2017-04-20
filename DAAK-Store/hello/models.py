@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import *
 
-class Player(User, PermissionsMixin):
-    developer = models.BooleanField(default=True)
+class Player(models.Model):
+    developer = models.BooleanField(default=False)
     # player is not necessary, simply check if not developer
-    active = models.BooleanField(default=False)
+    #activated = models.BooleanField(default=False) # 3ICE: Can remove...
+    user = models.OneToOneField(User)
 
     def method_example(self):
         pass
