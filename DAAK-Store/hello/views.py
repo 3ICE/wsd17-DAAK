@@ -11,6 +11,7 @@ from hello.models import Game
 from hashlib import md5
 
 
+
 def index(request):
     return render(request, 'index.html')
 
@@ -187,6 +188,7 @@ def user_verification(request, secure_link):
     if player.developer:  # request.user.developer didn't work, so here's a workaround
         return render(request, 'profile_developer.html', {'msg': msg})
     else:
+<<<<<<< HEAD
       return render(request, 'profile_player.html', {'msg': msg})
 
 #payment logic
@@ -204,3 +206,6 @@ def pay_begin(request, game_name):
         return render(request,'pay_begin.html',{'game_name':game_name,'pid':pid,'price':price,'checksum':checksum} )
     else:
         return redirect("login")
+=======
+        return render(request, 'profile_player.html', {'msg': msg})
+>>>>>>> 4ce5f32f57c9798ebe3fd26e7603fc80d3958cdd
