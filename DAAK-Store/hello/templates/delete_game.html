@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
-
+{% block header %}
 {% block title %}Welcome {{request.user.username}}{% endblock %}
 
+{% load static %}
+<link href="https://daak-store.herokuapp.com/static/styles.css" rel="stylesheet" type="text/css" />
+{% endblock %}
 {% block content %}
-<div>
+<div align="center" id="centertag" class="registration-container">
 {% for game in allgames %}
 <a href="{{game.game_name.split|join:"_"}}">
     <b>
@@ -17,7 +20,10 @@
   <form action="/delete_game/" method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" name="delete" value="delete" />
+  <p>Click the button to display a confirm box.</p>
+
+<td width="10%" align="center"><a href="/game_confirmation_delete/{{Game.game_name}}"> Delete this game</a></td>
+
 
   <p id="demo"></p>
 
