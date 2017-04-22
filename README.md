@@ -37,7 +37,9 @@ We'll aim to hit each deadline of course. Here they are:
 
 
 ## General description of what we are doing and how we are doing that
-(what kinds of views, models are needed), how they relate to each other, and what is the implementation order: Todo
+(what kinds of views, models are needed), how they relate to each other, and what is the implementation order:
+
+First we cloned the heroku getting started. Then we implemented login, logout and 3rd party authorization.  
 
 
 # Our first task is creating this readme.md file
