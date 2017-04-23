@@ -14,9 +14,9 @@ My Web development repo: https://gitlab.rd.tut.fi/berezvai/web/
 
 Master `seitti2017` repo: https://gitlab.rd.tut.fi/seitti/seitti2017/tree/master
 
-Our OneDrive: [WSD-Time and Work done](https://tutfi-my.sharepoint.com/personal/venkatak_student_tut_fi/_layouts/15/guestaccess.aspx?folderid=0032e99ee17b6441488b2549b4050d193&authkey=ASVs2BtHwdhfQDYyTPuB4xM)
-
 Our game on Heroku: [clone-clicker](https://clone-clicker.herokuapp.com/)
+
+DAAK Project Presentation Document: https://docs.google.com/document/d/1S9Yy6taSzFo-6ZfMbtmAInkoXhcy0YKbUgwecdfcgek/edit?usp=sharing
 
 Documentation: [Game.md](game/Game.md) Screenshot: [png](game/Clone-Clickers-v1-screenshot.png) Demonstration: [gif](game/Demonstration-animation.gif)
 
@@ -49,7 +49,7 @@ Our implementation was done in phases.
 * For players, we allowed them to play games and set the scores.
 * Our next phase was to implement payments using simple payments, which was pretty interesting to implement.
 * We made sure that the players can play only the games they have purchased and cannot purchase the same game twice.
-* We implemented the specifed services given in the project document.
+* We implemented the specifed services(save,load and game resolution) given in the project document.
 * Finally we implemented restful API's.
 
 This was our workflow and hopefully we met the required criteria to make our store one amongst the better ones.
