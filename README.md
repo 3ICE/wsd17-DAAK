@@ -39,9 +39,20 @@ We'll aim to hit each deadline of course. Here they are:
 ## General description of what we are doing and how we are doing that
 (what kinds of views, models are needed), how they relate to each other, and what is the implementation order:
 
-First we cloned the heroku getting started. Then we implemented login, logout and 3rd party authorization. After that, we tried to do login for developers and players separately.
-Next, we tried to implement add game. In the next step we tried doing player authentication and delete game simultaneously. Next we tried to do the edit game and payment simultaneously 
-and then save score and load score. We then focused on restfull API.
+Our implementation was done in phases.
+* We created the JavaScript game "Clone Clicker".
+* Created an heroku account, deployed the game and made sure it worked well.
+* Then we proceeded to game store, login and logout were our first tasks. We used heroku's django project for reference and a base.We then implemented social media login.
+* We designed signup in such a way, the people who wants to sign up to our store gets a mail with activation link. The link activates the account. 
+* Our next step was to differentiate between players and developers. So we implemented appropriate logic for it. We had seperate flows for players and developers.
+* Then we gave the power to developer add games, set a price for it and additional functionality for editing the games.
+* For players, we allowed them to play games and set the scores.
+* Our next phase was to implement payments using simple payments, which was pretty interesting to implement.
+* We made sure that the players can play only the games they have purchased and cannot purchase the same game twice.
+* We implemented the specifed services given in the project document.
+* Finally we implemented restful API's.
+
+This was our workflow and hopefully we met the required criteria to make our store one amongst the better ones.
 
 
 # Our first task is creating this readme.md file
