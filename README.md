@@ -16,9 +16,17 @@ Master `seitti2017` repo: https://gitlab.rd.tut.fi/seitti/seitti2017/tree/master
 
 Our game on Heroku: [clone-clicker](https://clone-clicker.herokuapp.com/)
 
-DAAK Project Presentation Document: https://docs.google.com/document/d/1S9Yy6taSzFo-6ZfMbtmAInkoXhcy0YKbUgwecdfcgek/edit?usp=sharing
+Presentation: [DAAK Project Presentation Document](https://docs.google.com/document/d/1S9Yy6taSzFo-6ZfMbtmAInkoXhcy0YKbUgwecdfcgek/edit?usp=sharing)
 
 Documentation: [Game.md](game/Game.md) Screenshot: [png](game/Clone-Clickers-v1-screenshot.png) Demonstration: [gif](game/Demonstration-animation.gif)
+
+Game Store: [DAAK-Store](https://daak-store.herokuapp.com/)
+
+Developer view:
+username: apara
+password: 525A6li9
+
+Player view: signup with facebook
 
 ## Members:
 * Daniel Berezvai, <daniel.berezvai@student.tut.fi> ```262849```
