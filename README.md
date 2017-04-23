@@ -39,7 +39,9 @@ We'll aim to hit each deadline of course. Here they are:
 ## General description of what we are doing and how we are doing that
 (what kinds of views, models are needed), how they relate to each other, and what is the implementation order:
 
-First we cloned the heroku getting started. Then we implemented login, logout and 3rd party authorization.  
+First we cloned the heroku getting started. Then we implemented login, logout and 3rd party authorization. After that, we tried to do login for developers and players separately.
+Next, we tried to implement add game. In the next step we tried doing player authentication and delete game simultaneously. Next we tried to do the edit game and payment simultaneously 
+and then save score and load score. We then focused on restfull API.
 
 
 # Our first task is creating this readme.md file
