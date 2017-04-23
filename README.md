@@ -18,7 +18,7 @@ Our game on Heroku: [clone-clicker](https://clone-clicker.herokuapp.com/)
 
 Presentation: [DAAK Project Presentation Document](https://docs.google.com/document/d/1S9Yy6taSzFo-6ZfMbtmAInkoXhcy0YKbUgwecdfcgek/edit?usp=sharing)
 
-Documentation: [Game.md](clone-clickers/Game.md) Screenshot: [png](clone-clickers/Clone-Clickers-v1-screenshot.png) Demonstration: [gif](clone-clickers/Demonstration-animation.gif)
+Documentation: [Game.md](clone-clicker/Game.md) Screenshot: [png](clone-clicker/Clone-Clickers-v1-screenshot.png) Demonstration: [gif](clone-clicker/Demonstration-animation.gif)
 
 Game Store: [DAAK-Store](https://daak-store.herokuapp.com/)
 
