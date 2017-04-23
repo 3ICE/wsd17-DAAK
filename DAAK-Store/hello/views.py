@@ -309,7 +309,11 @@ def pay_failed(request):
 
 # displaying high scores in the high scores page
 @api_view(['GET'])
-def highscores(request, game_name):
+
+
+
+def highscore(request, game_name):
+
 
     if request.user.is_authenticated() and not request.user.is_anonymous():
         user = request.user
@@ -337,6 +341,8 @@ def save(request):
         score.update(score=state["score"])
         score.update(state=states)
         return HttpResponse(states, content_type='application/json')
+    else:
+        raise Http404('Not a POST request, not an AJAX request, what are you doing?')
 
 
 def load(request):
@@ -353,3 +359,5 @@ def load(request):
             data["gameState"] = score.state
 
         return HttpResponse(json.dumps(data), content_type='application/json')
+    else:
+        raise Http404('Not a POST request, not an AJAX request, what are you doing?')
