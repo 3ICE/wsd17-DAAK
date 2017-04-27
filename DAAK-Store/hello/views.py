@@ -1,5 +1,5 @@
 from django.shortcuts import *
-from django.http import HttpResponse, Http404
+from django.http import *
 from django.contrib.auth import *
 from django.contrib.auth.models import User
 from .forms import *
@@ -14,56 +14,85 @@ from hashlib import md5
 from hello.serializers import *
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-import json
 
+import json 
+from datetime import datetime
 
 # landing page
 def index(request):
     return render(request, 'index.html', {"allgames": Game.objects.all()})
 
 
+
 # list of games
 def games(request):
     if request.user.is_authenticated():
         return render(request, 'games.html', {"allgames": Game.objects.all()})
+    else:
+        return redirect('login') # 3ICE: We must ALWAYS return something, if it's a function like this
+
+
+# def scores(request):
+#     if request.user.is_authenticated():
+#         return render(request, 'loadhighscores.html', {"allscores": Score.objects.all()})
 
 
 # link to a particular game
 def game(request, name):
     if request.user.is_authenticated():
         game = Game.objects.get(game_name=name)
-        # 3ICE: Player doesn't have a "receipt" in the Score database table, so make them buy first
+    # 3ICE: Player doesn't have a "receipt" in the Score database table, so make them buy first
         if Score.objects.filter(game=game, player=request.user).exists():
             return render(request, 'game.html', {"game": Game.objects.get(game_name=name.replace("_", " "))})
         else:
             return redirect('../pay_begin/' + name)
-
+    else:
+        return redirect('login')
 
 # link to developer's view
 def profile_developer(request):
     if request.user.is_authenticated():
-        player = Player.objects.get(user=request.user)
-        if not player.developer:
+        try:
+            player = Player.objects.get(user=request.user)
+            if(player):
+                if player.developer:
+                    return render(request, 'profile_developer.html')
+        except:
             return redirect('profile_player')
-        return render(request, 'profile_developer.html')
+    return redirect('profile_player')
 
 
 # link to player view
 def profile_player(request):
     if request.user.is_authenticated():
         return render(request, 'profile_player.html')
+    else:
+        return redirect('login')
 
 
 # linking page to options with delete, add and edit games
 def manage_game(request):
     if request.user.is_authenticated():
         return render(request, 'manage_game.html', {"allgames": Game.objects.filter(game_developer=request.user)})
+    else:
+        return redirect('login')
+
+def sale_statistics(request):
+    if request.user.is_authenticated():
+        list = []
+        set_of_games = Game.objects.filter(game_developer=request.user)
+        for game in set_of_games:
+            set_of_scores = Score.objects.filter(game=game)
+            for score in set_of_scores:
+                list.append(score.game_timestamp)
+        return render(request, 'sale_statistics.html', {"allgames": Game.objects.filter(game_developer=request.user),"time_stamp":list})
+    else:
+        return redirect('login')
 
 
 # linking to registration
 def registration(request):
     # registered = True
-
     return render(request, 'registration.html')
 
 
@@ -76,6 +105,8 @@ def signup(request):
             name = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             email = form.cleaned_data.get('email')
+            if not name.isalpha():
+                return render(request, 'signup.html', {'form': form, 'msg':"Use only alpha numeric"})
             user = authenticate(username=name, password=raw_password)
             # 3ICE: Temporarily auth them (worked like this before)
             # user_db.active = True
@@ -94,7 +125,6 @@ def signup(request):
             return redirect('login')
         else:
             return render(request, 'signup.html', {'form': form})  # displays all errors in red automatically
-
     else:
         form = SignUpForm()  # 3ICE: Possibly stop using this, since we need to send the email
     return render(request, 'signup.html', {'form': form})
@@ -103,17 +133,20 @@ def signup(request):
 # checks if user is developer and lets him add his game
 def addgame(request):
     if request.user.is_authenticated():
-        if request.method == 'POST' or True:  # TODO Don't use "or True", it skips the if check entirely
-            form = AddGameForm(data=request.POST)
-            if form.is_valid():
-                game = form.save(commit=False)
-                game.game_developer = request.user  # gets user
-                game.save()  # saves
-            else:
-                print(form.errors)
-            return render(request, "add_game.html", {"form": form})
+    # 3ICE: Don't use "or True", it skips the if check entirely (removed nested if completely)
+        form = AddGameForm(data=request.POST)
+        if form.is_valid():
+            game = form.save(commit=False)
+            if not game.game_name.isalpha():
+                return render(request, "add_game.html", {"form": form, "msg": "Please specify an alphanumeric game name (It's the Game ID)"})
+            if Game.objects.filter(game_name=game.game_name).exists():
+                return render(request, "add_game.html", {"form": form, "msg": "ERROR: That name is already in use"})
+            game.game_developer = request.user  # gets user
+            game.save()
+            return render(request, "add_game.html", {"form": form, "msg": "Game added successfully"})
         else:
-            return redirect("login")
+            print(form.errors)
+        return render(request, "add_game.html", {"form": form})
     else:
         return redirect("login")
 
@@ -264,6 +297,9 @@ def pay_begin(request, game_name):
 
 # payment succeeded
 def pay_success(request):
+    # create a logic which takes care of checking whether player has already bought the game
+    # if the player has already purchased, throw error, navigate back to the game
+    # else add player to the game or vice versa, navigate back to the games list
     if request.user.is_authenticated():
         pid = request.GET['pid']
         checksum = request.GET['checksum']
@@ -274,30 +310,25 @@ def pay_success(request):
         username, game_name = pid.split('____')
         game = Game.objects.get(game_name=game_name)
         check_top_hat = 'pid={}&ref={}&result={}&token={}'.format(pid, ref, result, secret_key)
+
         # check_string = "pid=" + pid + "&sid=" + sid + "&amount=" + str(price) + "&token=" + secret_key
         # m = md5(check_string.encode("ascii"))
 
         if md5hex(check_top_hat.encode("ascii")) == checksum:
-
             user = User.objects.get(username=username)
             if Score.objects.filter(game=game, player=user).exists():
-                raise Http404(
-                    "<h2> You don't have to pay us twice!,You already have the game in your inventory " + user.username)
+                raise Http404("<h2> You don't have to pay us twice!,You already have the game in your inventory " + user.username)
             else:
                 # 3ICE: This is the "receipt" for having purchased the game.
                 Score.objects.create(game=game, player=user, score=0)
-
                 # 3ICE: Record sales statistics
                 game.game_sales += 1
                 game.save()
-            return render(request, 'pay_success.html', {'game': game})
+            return render(request, 'pay_success.html', {'game': game,'time':game.game_timestamp})
         else:
             return render(request, 'pay_failed.html')
     else:
         return redirect("login")
-        # create a logic which takes care of checking whether player has already bought the game
-        # if the player has already purchased, throw error, navigate back to the game
-        # else add player to the game or vice versa, navigate back to the games list
 
 
 # payment cancelled
@@ -324,33 +355,45 @@ def highscores(request, game_name):
         scores = Score.objects.filter(game=game)
 
         if request.method == 'GET':
-            serializer = ScoreSerializer(scores, many=True)
-            return Response(serializer.data)
+            #serializer = ScoreSerializer(scores, many=True)
+            dump = {"game": game.game_name, "scores": {}} 
+            
+
+            for score in scores:
+                dump["scores"][score.player.username] = score.score
+
+            return JsonResponse(dump)
     else:
         return redirect("login")
 
 
 @api_view(['GET'])
-def highscore(request, game_name, player_name):
+def highscore(request, game_name, user_name):
     if request.user.is_authenticated() and not request.user.is_anonymous():
         user = User.objects.get(username=user_name)
         game = Game.objects.get(game_name=game_name)
         score = Score.objects.filter(game=game, player=user)
-
         if request.method == 'GET':
             serializer = ScoreSerializer(score)
             return Response(serializer.data)
     else:
         return redirect("login")
 
+@api_view(['GET'])
+def games_list(request):
+    if request.user.is_authenticated() and not request.user.is_anonymous():
+        games = Game.objects.all()
+        if request.method == 'GET':
+            serializer = GameSerializer(games, many=True)
+            return Response(serializer.data)
+    else:
+        return redirect("login")
 
 def save(request):
     if request.method == 'POST' and request.is_ajax():
         data = json.loads(request.POST.get('state', None))
         state = data['gameState']
         states = json.dumps(state)
-        states = states.decode('string_escape')
-        # load player and game associated with this request, and use them to query the Scores object
         game_name = request.POST.get('game_name', None)
         player_name = request.POST.get('player_name', None)
         game = Game.objects.get(game_name=game_name)
@@ -358,7 +401,22 @@ def save(request):
         score = Score.objects.filter(game=game, player=user)
         # score.update(score=state["gameState"])
         score.update(state=states)
-        return HttpResponse(states, content_type='application/json')
+        return JsonResponse(states, safe=False)
+    else:
+        raise Http404('Not a POST request, not an AJAX request, what are you doing?')
+
+
+def score(request):
+    if request.method == 'POST' and request.is_ajax():
+        data = json.loads(request.POST.get('state', None))
+        state = data['score']
+        game_name = request.POST.get('game_name', None)
+        player_name = request.POST.get('player_name', None)
+        game = Game.objects.get(game_name=game_name)
+        user = User.objects.get(username=player_name)
+        score = Score.objects.filter(game=game, player=user)
+        score.update(score=state)
+        return JsonResponse(state, safe=False)
     else:
         raise Http404('Not a POST request, not an AJAX request, what are you doing?')
 
@@ -378,6 +436,17 @@ def load(request):
             data["messageType"] = "LOAD"
             data["gameState"] = score.state
 
-        return HttpResponse(json.dumps(data), content_type='application/json')
+        return JsonResponse(data)
     else:
         raise Http404('Not a POST request, not an AJAX request, what are you doing?')
+
+
+# def loadhighscores(request, id):
+#     if request.user.is_authenticated():
+#         player = request.user
+#         game = Score.objects.get(game=game)
+#         return render_to_response('highscores.html', {'player': player, 'game': game, 'score': score})
+#     else:
+#         return redirect('login.html')
+
+

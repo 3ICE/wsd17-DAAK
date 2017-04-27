@@ -28,7 +28,8 @@ button {
 position: relative;
 background: #B1DBFF;
 width: 600px;
- margin:0px auto;
+margin: auto;
+text-align: center;
 }
 #centertag a{
   display: block;
@@ -45,4 +46,10 @@ input[type="submit"]{
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+}
+#centertag ul{
+    list-style-type: none;
+}
+#centertag li{
+    list-style-type: none;
 }

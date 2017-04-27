@@ -9,14 +9,14 @@
 {% block content %}
 <div id="centertag" class="registration-container">
 <div>
-{% for game in allgames %}
-<a href="{{game.game_name.split|join:"_"}}">
+{% for score in allscores %}
+<a href="{{score.game.split|join:"_"}}">
     <b>
-    {{game.game_name }}
+    {{score.game }}
     </b> by
-    {{game.game_developer}}
+    {{score.player}}
     <br />
-    ${{game.game_price|floatformat:2}}
+    ${{score.score}}
   </a>
 
   {% empty %}

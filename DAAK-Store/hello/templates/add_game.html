@@ -13,7 +13,10 @@ ul {
 {% block title %}Add Game{% endblock %}
 
 {% block content %}
-<div align="center" id="centertag" class="registration-container">
+{% if msg %}
+    <p style="color:blue;">{{msg}}</p>
+{% endif %}
+<div id="centertag" class="registration-container">
   <h2>Add Game</h2>
   <p>Logged in as {{request.user.username}}</p>
   <form action="/add_game/" method="post">
