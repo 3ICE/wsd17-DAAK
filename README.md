@@ -111,9 +111,10 @@ High quality of feedback and more than 2 tested programs.
 
 ## Implementation Plan
 Software Requirements:
-* JavaScript(Front-end and Back End)
-* Ajax(Back-End)
-* HTML, CSS(Front-end)
+* JavaScript (Frontend)
+* Django / Python (Backend)
+* Ajax (Frontend, Backend)
+* HTML, CSS (Frontend)
 
 
 ## Implementation Timetable
